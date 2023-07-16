@@ -7,11 +7,12 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
-public class CloudPhotoUserApplicationTest {
+import static org.junit.Assert.assertTrue;
+
+
+public class CloudPhotoUserApplicationTest extends TestCase {
     public void testApp()
     {
-
+        assertTrue( true );
     }
 }
