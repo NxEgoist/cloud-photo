@@ -1,0 +1,45 @@
+server:
+  port: 88
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: cloud-photo-gateway
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cloud_photo?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: 159357
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        #        高优先级路由放前面
+        - id: api-service
+          #          负载均衡：cloud-photo-api：这个路由它最终是去掉那个服务
+          uri: lb://cloud-photo-api
+          #          断言：Path=/api/** 如果你发送的请求带有/api/前缀 -> cloud-photo-api
+          predicates:
+            - Path=/api/**
+          #          过滤器：RewritePath：路径重写：localhost:88/api/getUserInfo --> localhost:9009/getUserInfo
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: audit-service
+          #          负载均衡：cloud-photo-audit
+          uri: lb://cloud-photo-audit
+          #          断言：/audit/
+          predicates:
+            - Path=/audit/**
+          #          过滤器：
+          filters:
+            - RewritePath=/audit/(?<segment>/?.*), /$\{segment}
+
+
+
+

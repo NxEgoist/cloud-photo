@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-photo-user" />
+        <module name="cloud-photo-trans" />
+        <module name="cloud-photo-common" />
+        <module name="cloud-photo-api" />
+        <module name="cloud-photo-image" />
+        <module name="cloud-photo-gateway" />
+        <module name="cloud-photo-audit" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-photo-3121004567" options="" />
+      <module name="cloud-photo-api" options="" />
+      <module name="cloud-photo-user" options="" />
+    </option>
+  </component>
+</project>

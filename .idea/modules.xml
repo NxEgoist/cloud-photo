@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-photo-api/cloud-photo-api.iml" filepath="$PROJECT_DIR$/cloud-photo-api/cloud-photo-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-photo-audit/cloud-photo-audit.iml" filepath="$PROJECT_DIR$/cloud-photo-audit/cloud-photo-audit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-photo-gateway/cloud-photo-gateway.iml" filepath="$PROJECT_DIR$/cloud-photo-gateway/cloud-photo-gateway.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: cloud-photo-api
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: localhost:8848
+      config:
+        file-extension: yaml

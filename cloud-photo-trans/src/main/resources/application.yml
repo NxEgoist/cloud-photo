@@ -1,0 +1,70 @@
+spring:
+  cloud:
+#   nacos config
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: localhost:8848
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  application:
+    name: cloud-photo-trans
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cloud_photo?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 159357
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#kafka
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      auto:
+        commit:
+          interval:
+            ms: 1000
+      auto-offset-reset: latest
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      max-poll-records: 20
+      properties:
+        group:
+          id: defaultConsumerGroup
+        request:
+          timeout:
+            ms: 180000
+        session:
+          timeout:
+            ms: 120000
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      missing-topics-fatal: false
+    producer:
+      acks: 1
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        linger:
+          ms: 0
+      retries: 0
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#服务端口
+server:
+  port: 9009
+
+#mybatis-plus
+#mybatis-plus:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#  mapper-locations: classpath*:/mapper/**/*.xml
+
+
+#feign:
+#  client:
+#    config:
+#      default:
+#        # 超时设置 30 秒超时
+#        connectTimeout: 30000
+#        readTimeout: 30000
